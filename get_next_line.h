@@ -15,7 +15,14 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 4
+#endif
 char	*get_next_line(int fd);
-int ft_line_size(int fd);
-
+char  *read_line(int fd, char *str);
+int find_newline(char *buffer, int size);
+void	*ft_memcpy(void *dest, void *src, unsigned int n);
+size_t	ft_strlen(const char *s);
+void copy_data(char **output, char *buffer, int len);
+void	*ft_memmove(void *dest, void *src, size_t len);
 #endif
