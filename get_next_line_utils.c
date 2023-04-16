@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:33:10 by jkulka            #+#    #+#             */
-/*   Updated: 2023/04/13 17:53:55 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/04/16 15:41:29 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,46 +44,72 @@ void	*ft_memcpy(void *dest, void *src, unsigned int n)
 	return (dest);
 }
 
+// int find_newline(char *buffer, int size)
+// {
+//   int i;
+//   if(!buffer)
+//     return (-1);
+//   i = 0;
+//   while(i < size && buffer[i] != '\0' && buffer[i] != '\n')
+//     i++;
+//   if (i < size && buffer[i] == '\n')
+//     return (i);
+//   else
+//     return (-1);
+// }
+
 int find_newline(char *buffer, int size)
 {
-  int i;
-  if(!buffer)
-    return (-1);
-  i = 0;
-  while(i < size && buffer[i] != '\0' && buffer[i] != '\n')
-    i++;
-  if (i < size && buffer[i] == '\n')
-    return (i);
-  else
+    int i;
+
+    if (!buffer)
+        return (-1);
+
+    for (i = 0; i < size; i++) {
+        if (buffer[i] == '\n')
+            return (i);
+        if (buffer[i] == '\0')
+            break;
+    }
+
     return (-1);
 }
+
+
 
 void copy_data(char **output, char *buffer, int len)
 {
     int output_len;
     char *new_output;
 
-    if (*output == NULL) {
-        *output = (char *)malloc(len + 1);
-        if (*output == NULL) {
+    if (*output == NULL)
+    {
+        *output = (char *)malloc(len + 2);
+        if (*output == NULL)
+        {
             return;
         }
         output_len = 0;
-    } else {
+    }
+    else
+    {
         output_len = ft_strlen(*output);
-        new_output = (char *)malloc(output_len + len + 1);
-        if (new_output == NULL) {
+        new_output = (char *)malloc(output_len + len + 2);
+        if (new_output == NULL)
+        {
             return;
         }
-
         ft_memcpy(new_output, *output, output_len);
         free(*output);
         *output = new_output;
     }
-
     ft_memcpy(*output + output_len, buffer, len);
     (*output)[output_len + len] = '\0';
 }
+
+
+
+
 
 void	*ft_memmove(void *dest, void *src, size_t len)
 {
