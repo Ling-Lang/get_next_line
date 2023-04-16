@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:18:38 by jkulka            #+#    #+#             */
-/*   Updated: 2023/04/13 18:21:10 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/04/15 14:09:37 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,19 @@ char *get_next_line(int fd) {
 }
 
 
-#include<fcntl.h>
-#include<fcntl.h>
-#include <stdio.h>
-int main()
-{
-
-	int fd = open("test.txt", O_RDONLY);
-	printf("%s", get_next_line(fd));
-  printf("\n%s", get_next_line(fd));
-}
+// #include<fcntl.h>
+// #include<fcntl.h>
+// #include <stdio.h>
+// int main()
+// {
+// 	int fd = open("multiple_line_with_nl", O_RDONLY);
+//     get_next_line(fd);
+//     char *gnl_return = get_next_line(fd);
+//     char *expected = "34567890123456789012345678901234567890";
+// 	// printf("%s", get_next_line(fd));
+//     if(gnl_return == expected)
+//         printf("OK");
+//     else
+//         printf("KO");
+//   
+// }
