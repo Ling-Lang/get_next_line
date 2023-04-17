@@ -44,36 +44,21 @@ void	*ft_memcpy(void *dest, void *src, unsigned int n)
 	return (dest);
 }
 
-// int find_newline(char *buffer, int size)
-// {
-//   int i;
-//   if(!buffer)
-//     return (-1);
-//   i = 0;
-//   while(i < size && buffer[i] != '\0' && buffer[i] != '\n')
-//     i++;
-//   if (i < size && buffer[i] == '\n')
-//     return (i);
-//   else
-//     return (-1);
-// }
+ int find_newline(char *buffer, int size)
+ {
+   int i;
+   if(!buffer)
+     return (-1);
+   i = 0;
+   while(i < size && buffer[i] != '\0' && buffer[i] != '\n')
+     i++;
+   if (i < size && buffer[i] == '\n')
+     return (i);
+   else
+     return (-1);
+ }
 
-int find_newline(char *buffer, int size)
-{
-    int i;
 
-    if (!buffer)
-        return (-1);
-
-    for (i = 0; i < size; i++) {
-        if (buffer[i] == '\n')
-            return (i);
-        if (buffer[i] == '\0')
-            break;
-    }
-
-    return (-1);
-}
 
 
 
